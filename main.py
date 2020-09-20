@@ -2,6 +2,7 @@
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import numpy as np
 
 
 def print_hi(name):
@@ -76,8 +77,11 @@ if __name__ == '__main__':
     print(f"{median(my_set)} - median")
     print(f"{moda(my_set)} - moda/ modas")
     print(f"{max_min(my_set)} - max/ min")
-
     m_m = max_min(my_set)
     print(f"{m_m[0] - m_m[1]} - rozmax")
-    print_hi("elina")
+    print(" quantile 0.1 : ", np.quantile(my_set, .1))
+    print(" quantile 0.25 : ", np.quantile(my_set, .25))
+    print(" quantile 0.5 : ", np.quantile(my_set, .5))
+    print(" quantile 0.75 : ", np.quantile(my_set, .75))
+
     # TODO quantile
