@@ -79,5 +79,5 @@ if __name__ == '__main__':
 
     m_m = max_min(my_set)
     print(f"{m_m[0] - m_m[1]} - rozmax")
-
+    print_hi("elina")
     # TODO quantile
