@@ -14,13 +14,13 @@ import matplotlib.pyplot as plt
 df = pandas.read_csv('tmdb_5000_movies.csv')
 # print(df)
 
-# plotting all number params
-# dataset = pandas.DataFrame(df)
-# # dataset.head()
-# fig = plt.figure(figsize=(8, 8))
-# ax = fig.gca()
-# dataset.hist(ax=ax)
-# plt.show()
+# # plotting all number params
+dataset = pandas.DataFrame(df)
+# dataset.head()
+fig = plt.figure(figsize=(8, 8))
+ax = fig.gca()
+dataset.hist(ax=ax)
+plt.show()
 
 min_my = 10 ** 10
 for i in df['vote_count']:
@@ -37,4 +37,4 @@ av_vote = sum_my / counter
 
 new_rating = [None] * len(df['title'])
 # for n in df['title']:
-print(df['title'][0].index)
+# print(df['title'][0].index)
