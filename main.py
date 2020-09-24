@@ -3,6 +3,7 @@
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 import numpy as np
+import math
 
 
 def print_hi(name):
@@ -69,11 +70,19 @@ def max_min(array):
     return max_my, min_my
 
 
+def vidhilennya(float):
+    vidh = math.sqrt(disp)
+    return vidh
+
 if __name__ == '__main__':
-    my_set = [1, 2, 2, 3, 4, 5, 6, 7]
+    my_set = [-7, -4, 2, 4, 6]
     print(f"{medium_value(my_set)} - medium value")
     # print(f"{dispersion(my_set)} - dispersion")  # TODO incorrect
+    #дисперсия функцией
+    print("Dispersion ", np.var(my_set))
     # TODO стандартне выдхидення
+    disp = np.var(my_set)
+    print(f"{vidhilennya(disp)} - standartne vidhilennya")
     print(f"{median(my_set)} - median")
     print(f"{moda(my_set)} - moda/ modas")
     print(f"{max_min(my_set)} - max/ min")
@@ -84,4 +93,6 @@ if __name__ == '__main__':
     print(" quantile 0.5 : ", np.quantile(my_set, .5))
     print(" quantile 0.75 : ", np.quantile(my_set, .75))
 
+
     # TODO quantile
+
