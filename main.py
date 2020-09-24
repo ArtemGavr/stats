@@ -77,8 +77,8 @@ def vidhilennya(float):
 if __name__ == '__main__':
     my_set = [-7, -4, 2, 4, 6]
     print(f"{medium_value(my_set)} - medium value")
-    # print(f"{dispersion(my_set)} - dispersion")  # TODO incorrect
-    #дисперсия функцией
+
+    #дисперсия функции
     print("Dispersion ", np.var(my_set))
     # TODO стандартне выдхидення
     disp = np.var(my_set)
