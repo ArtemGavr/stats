@@ -84,7 +84,7 @@ def vidhilennya(disp):
 my_set = df['popularity'].to_list()
 print(f"{medium_value(my_set)} - medium value")
 
-    #дисперсия функции
+# дисперсия функции
 print("Dispersion ", np.var(my_set))
 disp = np.var(my_set)
 print(f"{vidhilennya(disp)} - standartne vidhilennya")
@@ -199,3 +199,42 @@ for i in top10_ratings:
     top10_films.append((name, i[1]))
 
 print('Top 10 movies: ', top10_films)
+
+movies_filtered = movies.loc[movies.vote_count != 0]
+v = movies_filtered.vote_count
+m = movies_filtered.vote_count.min()
+r = movies_filtered.vote_average
+c = movies_filtered.vote_average.mean()
+
+weighted_rating = (v * r + m * c) / (v + m)
+movies['weighted_rating'] = weighted_rating
+
+top_movies = movies.sort_values(by='weighted_rating', ascending = False)
+top_movies.loc[:, ['title', 'weighted_rating']].head(10)
+
+for genre in genres.keys():
+  print(genre)
+  indx = top_movies.genres.apply(lambda x: genre in x)
+  print(top_movies.loc[indx, ['title', 'weighted_rating']].head(5))
+  print('\n')
+
+# median used for recounting
+median = movies_filtered.vote_average.median()
+weighted_rating_2 = (v * r + m * median) / (v + m)
+movies['weighted_rating_2'] = weighted_rating_2
+
+top_movies_2 = movies.sort_values(by='weighted_rating_2', ascending=False)
+top_movies_2.loc[:, ['title', 'weighted_rating_2']].head(10)
+
+median = movies_filtered.vote_average.median()
+weighted_rating_2 = (v * r + m * median) / (v + m)
+movies['weighted_rating_2'] = weighted_rating_2
+
+top_movies_2 = movies.sort_values(by='weighted_rating_2', ascending=False)
+top_movies_2.loc[:, ['title', 'weighted_rating_2']].head(10)
+
+for genre in genres.keys():
+    print(genre)
+    indx = top_movies_2.genres.apply(lambda x: genre in x)
+    print(top_movies_2.loc[indx, ['title', 'weighted_rating_2']].head(5))
+    print('\n')

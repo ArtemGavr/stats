@@ -75,7 +75,7 @@ def vidhilennya(float):
     return vidh
 
 if __name__ == '__main__':
-    my_set = [-7, -4, 2, 4, 6]
+    my_set = [-235, -103, 3, 100, 250]
     print(f"{medium_value(my_set)} - medium value")
 
     #дисперсия функции
