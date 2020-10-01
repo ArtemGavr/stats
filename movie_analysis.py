@@ -210,7 +210,9 @@ weighted_rating = (v * r + m * c) / (v + m)
 movies['weighted_rating'] = weighted_rating
 
 top_movies = movies.sort_values(by='weighted_rating', ascending = False)
-top_movies.loc[:, ['title', 'weighted_rating']].head(10)
+(top_movies.loc[:, ['title', 'weighted_rating']].head(10))
+
+print('\n!!!!!!!!!!!!!!!!!top by genre!!!!!!!!!!!!!!!\n')
 
 for genre in genres.keys():
   print(genre)
@@ -218,21 +220,17 @@ for genre in genres.keys():
   print(top_movies.loc[indx, ['title', 'weighted_rating']].head(5))
   print('\n')
 
+
 # median used for recounting
 median = movies_filtered.vote_average.median()
 weighted_rating_2 = (v * r + m * median) / (v + m)
 movies['weighted_rating_2'] = weighted_rating_2
 
+print('\n!!!!!!!!!!!!median for recounting top 10!!!!!!!!!!\n')
 top_movies_2 = movies.sort_values(by='weighted_rating_2', ascending=False)
-top_movies_2.loc[:, ['title', 'weighted_rating_2']].head(10)
+print(top_movies_2.loc[:, ['title', 'weighted_rating_2']].head(10))
 
-median = movies_filtered.vote_average.median()
-weighted_rating_2 = (v * r + m * median) / (v + m)
-movies['weighted_rating_2'] = weighted_rating_2
-
-top_movies_2 = movies.sort_values(by='weighted_rating_2', ascending=False)
-top_movies_2.loc[:, ['title', 'weighted_rating_2']].head(10)
-
+print('\n!!!!!!!!!!!!median for recounting by genres!!!!!!!!!!\n')
 for genre in genres.keys():
     print(genre)
     indx = top_movies_2.genres.apply(lambda x: genre in x)
