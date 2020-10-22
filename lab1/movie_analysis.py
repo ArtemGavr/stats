@@ -15,7 +15,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import json
 
-df = pandas.read_csv('lab1/tmdb_5000_movies.csv')
+df = pandas.read_csv("lab1\\tmdb_5000_movies.csv")
 
 
 def medium_value(array):
