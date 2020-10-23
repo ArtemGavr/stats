@@ -89,8 +89,8 @@ def main():
     F_spost = MSa / MSe
 
     fischer_critical_value = 2.87
-    print(F_spost)
-    print('H0 is', F_spost > fischer_critical_value)
+    print(F_spost, 'Fischer factional value')
+    print('H0 is', F_spost < fischer_critical_value)
 
 main()
 
